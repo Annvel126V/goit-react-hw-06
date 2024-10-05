@@ -8,12 +8,12 @@ const slice = createSlice({
   name: "filters",
   initialState,
   reducers: {
-    getStatusFilter(state, action) {
+    selectNameFilter(state, action) {
       state.name = action.payload;
     },
   },
 });
 
-export const getFilter = (state) => state.filters.name;
-export const { getStatusFilter } = slice.actions;
+export const gchangeFilter = (state) => state.filters.name;
+export const { selectNameFilter } = slice.actions;
 export default slice.reducer;
