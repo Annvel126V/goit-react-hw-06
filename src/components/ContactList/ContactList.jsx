@@ -2,12 +2,12 @@ import Contact from "../Contact/Contact";
 import { useSelector } from "react-redux";
 import s from "./ContactList.module.css";
 import { getContacts } from "../../redux/contactsSlice";
-import { gchangeFilter } from "../../redux/filtersSlice";
+import { selectNameFilter } from "../../redux/filtersSlice";
 
 const ContactList = () => {
   const contacts = useSelector(getContacts);
 
-  const filter = useSelector(gchangeFilter);
+  const filter = useSelector(selectNameFilter);
 
   const filteredContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filter.toLowerCase())
