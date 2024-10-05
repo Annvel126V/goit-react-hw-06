@@ -1,27 +1,27 @@
-// import Contact from "../Contact/Contact";
-// import { useSelector } from "react-redux";
-// import s from "./ContactList.module.css";
-// import { getContacts } from "../../redux/contactsSlice";
-// import { selectNameFilter } from "../../redux/filtersSlice";
+import Contact from "../Contact/Contact";
+import { useSelector } from "react-redux";
+import s from "./ContactList.module.css";
+import { getContacts } from "../../redux/contactsSlice";
+import { gchangeFilter } from "../../redux/filtersSlice";
 
-// const ContactList = () => {
-//   const contacts = useSelector(getContacts);
+const ContactList = () => {
+  const contacts = useSelector(getContacts);
 
-//   const filter = useSelector(selectNameFilter);
+  const filter = useSelector(gchangeFilter);
 
-//   const filteredContacts = contacts.filter((contact) =>
-//     contact.name.toLowerCase().includes(filter.toLowerCase())
-//   );
+  const filteredContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
+  );
 
-//   return (
-//     <ul className={s.list}>
-//       {filteredContacts.map((contact) => (
-//         <li className={s.item} key={contact.id}>
-//           <Contact contact={contact} />
-//         </li>
-//       ))}
-//     </ul>
-//   );
-// };
+  return (
+    <ul className={s.list}>
+      {filteredContacts.map(({ id, name, number }) => (
+        <li className={s.item} key={id}>
+          <Contact id={id} name={name} number={number} />
+        </li>
+      ))}
+    </ul>
+  );
+};
 
-// export default ContactList;
+export default ContactList;

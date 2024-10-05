@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 // 2. Імпортуємо фабрику екшену
 import { deleteContacts } from "../../redux/contactsSlice";
 
-const Contact = ({ data: { id, name, number } }) => {
+const Contact = ({ id, name, number }) => {
   // 3. Отримуємо посилання на функцію відправки екшенів
   const dispatch = useDispatch();
   // 4. Викликаємо фабрику екшену та передаємо ідентифікатор завдання
